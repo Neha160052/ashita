@@ -30,13 +30,13 @@ public class Employee{
 	
 	@override
 	public String toString() {
-		return "Name: "+firstName+" "+lastName+"\n Age: "+age+"Designation: "+designation;
+		return "Name: "+firstName+" "+lastName+"\nAge: "+age+"\nDesignation: "+designation;
 	}
 	
 	public static void main(String[] args) {
 		Employee e1 = new Employee();
 		System.out.println(e1.toString());
-		Employee e2 = new Employee(firstName: "ABC", lastName: "XYZ", age:22, designation:"student");
+		Employee e2 = new Employee("ABC", "XYZ", 22, "student");
 		System.out.println(e2.toString());
 		e2.setFirstName("JKL");
 		System.out.println(e2.toString());
