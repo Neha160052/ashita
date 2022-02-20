@@ -23,9 +23,9 @@ public class BankingSystem {
         BOI b2 = null;
         ICICI i = null;
         FileWriter fw = null;
-            fw = new FileWriter(new File("SBI.txt"));
+            fw = new FileWriter(new File("Bank.txt"));
             BufferedWriter writer = null;
-            writer = new BufferedWriter(new FileWriter("SBI.txt",true));
+            writer = new BufferedWriter(new FileWriter("Bank.txt",true));
         while (num != 0) {
             num = sc.nextInt();
             switch (num) {
