@@ -1,0 +1,6 @@
+Name= Ashita ,Balance= 10000.0 ,Account type= SAVINGS,Account number= 1300010003 ,Bank Name= SBI Bank
+Name= Kratika ,Balance= 12000.0 ,Account type= CURRENT,Account number= 1300010003 ,Bank Name= SBI Bank
+Name= Rohit ,Balance= 10500.0 ,Account type= SAVINGS,Account number= 1300010003 ,Bank Name= SBI Bank
+Name= Aditi ,Balance= 20000.0 ,Account type= SAVINGS,Account number= 1400010002 ,Bank Name= BOI Bank
+Name= Naman ,Balance= 23000.0 ,Account type= SAVINGS,Account number= 1400010002 ,Bank Name= BOI Bank
+Name= Ankit ,Balance= 23000.0 ,Account type= CURRENT,Account number= 1500010001 ,Bank Name= ICICI Bank
