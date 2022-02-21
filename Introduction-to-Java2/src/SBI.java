@@ -18,6 +18,7 @@ public class SBI extends Bank{
 
     @Override
     public String toString() {
+        //acc_num += 1;
         return "Name= " + this.name + " ,Balance= " + this.balance+" ,Account type= "+this.accType+",Account number= "+acc_num+" ,Bank Name= "+get_BankName() +"\n";
     }
 

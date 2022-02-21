@@ -31,7 +31,7 @@ public class BankingSystem {
             switch (num) {
                 case 1:
                     s = new SBI("Ashita", 10000, Bank.acc_type.SAVINGS);
-                    s1 = new SBI("Kratika", 12000, Bank.acc_type.CURRENT);
+                    s1 = new SBI("Shruti", 12000, Bank.acc_type.CURRENT);
                     s2 = new SBI("Rohit", 10500, Bank.acc_type.SAVINGS);
                     b = new BOI("Aditi", 20000, Bank.acc_type.SAVINGS);
                     b2 = new BOI("Naman", 23000, Bank.acc_type.SAVINGS);
