@@ -1,8 +1,8 @@
 package com.spring.demo.SpringCoreConcept;
 
-public class BubbleSortAlgorithm implements SortAlgorithm {
+public class QuickSortAlgorithm implements SortAlgorithm{
     public int[] sort(int[] numbers){
-        // logic for bubble sort algorithm
+        // logic for quick sort algorithm
         return numbers;
     }
 }

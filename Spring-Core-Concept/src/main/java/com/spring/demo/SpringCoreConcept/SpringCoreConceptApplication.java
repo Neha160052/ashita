@@ -8,7 +8,7 @@ public class SpringCoreConceptApplication {
 
 	public static void main(String[] args) {
 
-		BinarySearchImpl binarysearch = new BinarySearchImpl();
+		BinarySearchImpl binarysearch = new BinarySearchImpl(new BubbleSortAlgorithm());
 		int result = binarysearch.binarySearch(new int[] {12,4,6},3);
 		System.out.println(result);
 
