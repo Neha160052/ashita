@@ -17,6 +17,7 @@ public class BinarySearchImpl {
     public int binarySearch(int[] numbers, int numberToSearchFor){
 
         int[] sortedNumbers = SortAlgorithm.sort(numbers);
+        System.out.println(sortAlgorithm);
 
         // search the array
 
