@@ -12,6 +12,8 @@ public class Employee {
         this.age = age;
     }
 
+    protected Employee(){}
+
     public Integer getId() {
         return id;
     }

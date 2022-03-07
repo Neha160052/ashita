@@ -2,9 +2,7 @@ package com.restwebservices.restfulwebservices;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +22,8 @@ public class EmployeeResource {
         return service.findOne(id);
     }
 
+    @PostMapping("/employees")
+    public void createEmployee(@RequestBody Employee employee){
+        Employee savedEmployee = service.save(employee);
+    }
 }
