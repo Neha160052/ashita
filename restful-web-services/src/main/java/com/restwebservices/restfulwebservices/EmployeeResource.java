@@ -5,7 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -22,13 +28,17 @@ public class EmployeeResource {
     }
 
     @GetMapping("/employees/{id}")
-    public Employee retrieveEmployee(@PathVariable int id){
+    public EntityModel<Employee> retrieveEmployee(@PathVariable int id){
         Employee employee = service.findOne(id);
         if (employee == null)
             throw new EmployeeNotFoundException("id-"+id);
 
+        EntityModel<Employee> resource = EntityModel.of(employee);
 
-        return employee;
+        WebMvcLinkBuilder linkTo =
+                linkTo(methodOn(this.getClass()).retrieveAllEmployee());
+        resource.add(linkTo.withRel("all-employees"));
+        return resource;
     }
 
     @PostMapping("/employees")
