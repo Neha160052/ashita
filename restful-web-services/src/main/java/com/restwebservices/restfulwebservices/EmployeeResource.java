@@ -26,6 +26,8 @@ public class EmployeeResource {
         Employee employee = service.findOne(id);
         if (employee == null)
             throw new EmployeeNotFoundException("id-"+id);
+
+
         return employee;
     }
 
