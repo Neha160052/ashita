@@ -13,9 +13,9 @@ public class EmployeeDaoService {
     private static int employeecount = 3;
 
     static {
-        employees.add(new Employee(1,"Adam", 20));
-        employees.add(new Employee(2,"Eve", 21));
-        employees.add(new Employee(3,"Jack", 22));
+        employees.add(new Employee(1,"Adam", 20, "abc"));
+        employees.add(new Employee(2,"Eve", 21, "abc"));
+        employees.add(new Employee(3,"Jack", 22,"abc"));
     }
 
     public List<Employee> findAll(){

@@ -1,5 +1,7 @@
 package com.restwebservices.restfulwebservices;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.validation.constraints.Size;
 
 public class Employee {
@@ -9,11 +11,14 @@ public class Employee {
     @Size(min = 2)
     private String name;
     private int age;
+    @JsonIgnore
+    private String password;
 
-    public Employee(Integer id, String name, int age) {
+    public Employee(Integer id, String name, int age, String password) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.password = password;
     }
 
     protected Employee(){}
@@ -42,12 +47,21 @@ public class Employee {
         this.age = age;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
