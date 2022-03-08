@@ -24,7 +24,7 @@ public class EmployeeResource {
     public Employee retrieveEmployee(@PathVariable int id){
         Employee employee = service.findOne(id);
         if (employee == null)
-            throw new RuntimeException("id-"+id);
+            throw new EmployeeNotFoundException("id-"+id);
         return employee;
     }
 
@@ -34,5 +34,13 @@ public class EmployeeResource {
 
        URI location =  ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedEmployee.getId()).toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@PathVariable int id){
+        Employee employee = service.deleteById(id);
+        if (employee == null)
+            throw new EmployeeNotFoundException("id-"+id);
+        //return employee;
     }
 }
