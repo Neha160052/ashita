@@ -1,8 +1,12 @@
 package com.restwebservices.restfulwebservices;
 
+import javax.validation.constraints.Size;
+
 public class Employee {
 
     private Integer id;
+
+    @Size(min = 2)
     private String name;
     private int age;
 
