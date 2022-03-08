@@ -1,8 +1,12 @@
 package com.restwebservices.restfulwebservices;
 
 
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -25,6 +29,16 @@ public class EmployeeResource {
     @GetMapping("/employees")
     public List<Employee> retrieveAllEmployee() {
         return service.findAll();
+    }
+
+    @GetMapping("/filter")
+    public MappingJacksonValue retrieveAllEmployeefilter() {
+        Employee employee = new Employee();
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id","name","age");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("beanfilter",filter);
+        MappingJacksonValue mapping = new MappingJacksonValue(employee);
+        mapping.setFilters(filters);
+        return mapping;
     }
 
     @GetMapping("/employees/{id}")

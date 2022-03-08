@@ -1,9 +1,11 @@
 package com.restwebservices.restfulwebservices;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.validation.constraints.Size;
 
+@JsonFilter("beanfilter")
 public class Employee {
 
     private Integer id;
@@ -11,7 +13,7 @@ public class Employee {
     @Size(min = 2)
     private String name;
     private int age;
-    @JsonIgnore
+   // @JsonIgnore
     private String password;
 
     public Employee(Integer id, String name, int age, String password) {
