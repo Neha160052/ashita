@@ -53,7 +53,13 @@ class SpringDataJpaWithHibernateApplicationTests {
 
 	@Test
 	public void testDelete(){
+		repository.existsById(1);
 		repository.deleteById(1);
+	}
+
+	@Test
+	public void testCount(){
+		System.out.println("Total count: "+repository.count());
 	}
 
 
