@@ -16,7 +16,7 @@ public class Product {
     private String desc;
     private double price;
 
-    public int getId() {
+    public int getId(int i) {
         return id;
     }
 
@@ -32,7 +32,7 @@ public class Product {
         this.name = name;
     }
 
-    public String getDesc() {
+    public String getDesc(String abcd) {
         return desc;
     }
 
@@ -40,7 +40,7 @@ public class Product {
         this.desc = desc;
     }
 
-    public double getPrice() {
+    public double getPrice(int i) {
         return price;
     }
 
