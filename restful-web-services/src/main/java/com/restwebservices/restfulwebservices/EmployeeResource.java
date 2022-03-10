@@ -18,6 +18,7 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,9 +34,11 @@ public class EmployeeResource {
 
     @GetMapping("/filter")
     public MappingJacksonValue retrieveAllEmployeefilter() {
-        Employee employee = new Employee();
+       // Employee employee = new Employee(1,"ashita",21,"abc");
+        List<Employee> employee = new ArrayList<Employee>();
+        employee = service.findAll();
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id","name","age");
-        FilterProvider filters = new SimpleFilterProvider().addFilter("beanfilter",filter);
+        FilterProvider filters = new SimpleFilterProvider().addFilter("bean-filter",filter);
         MappingJacksonValue mapping = new MappingJacksonValue(employee);
         mapping.setFilters(filters);
         return mapping;

@@ -4,9 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@JsonFilter("beanfilter")
-public class Employee {
+@JsonFilter("bean-filter")
+public class Employee implements Serializable {
 
     private Integer id;
 
