@@ -8,9 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import org.springframework.data.domain.Pageable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -112,6 +116,26 @@ class SpringDataJpaWithHibernateApplicationTests {
 		products.forEach(p->System.out.println(p.getName()));
 	}
 
+
+	@Test
+	public void testFindAllPaging(){
+		Pageable pageable = (Pageable) PageRequest.of(1,2);
+		Page<Product> results = repository.findAll(pageable);
+		results.forEach(p->System.out.println(p.getName()));
+	}
+
+	@Test
+	public void testFindAllSorting() {
+		repository.findAll(Sort.by(new Sort.Order(Sort.Direction.ASC, "name"), new Sort.Order(null, "price")))
+				.forEach(p -> System.out.println(p.getName()));
+	}
+
+	@Test
+	public void testFindAllPagingAndSorting() {
+		Pageable pageable = PageRequest.of(0, 2, Sort.Direction.DESC, "name");
+		repository.findAll(pageable).forEach(p -> System.out.println(p.getName()));
+
+	}
 
 	// test cases for employee
 
