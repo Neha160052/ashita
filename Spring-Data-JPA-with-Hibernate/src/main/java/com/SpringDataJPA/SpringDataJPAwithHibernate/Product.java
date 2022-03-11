@@ -32,7 +32,7 @@ public class Product {
         this.name = name;
     }
 
-    public String getDesc(String abcd) {
+    public String getDesc(String desc) {
         return desc;
     }
 
@@ -40,7 +40,7 @@ public class Product {
         this.desc = desc;
     }
 
-    public double getPrice(int i) {
+    public double getPrice() {
         return price;
     }
 
