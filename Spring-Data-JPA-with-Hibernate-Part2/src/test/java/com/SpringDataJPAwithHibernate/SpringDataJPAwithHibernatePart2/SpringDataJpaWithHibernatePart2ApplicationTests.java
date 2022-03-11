@@ -1,5 +1,8 @@
 package com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2;
 
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.Address;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.Employees;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.EmployeesRepository;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.Cheque;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.CreditCard;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.PaymentRepository;
@@ -82,7 +85,7 @@ class SpringDataJpaWithHibernatePart2ApplicationTests {
 	}
 
 
-	// payment test cases
+	// payment test cases(inheritance mapping)
 
 	@Autowired
 	PaymentRepository pr;
@@ -106,6 +109,24 @@ class SpringDataJpaWithHibernatePart2ApplicationTests {
 	}
 
 
+	// employees test cases(component mapping)
 
+	@Autowired
+	EmployeesRepository er;
+
+	@Test
+	public void testCreate(){
+		Employees employees = new Employees();
+		employees.setId(123);
+		employees.setName("John");
+		Address address = new Address();
+		address.setCity("Austin");
+		address.setStreetaddress("springs");
+		address.setCountry("USA");
+		address.setState("Texas");
+		address.setZipcode("78750");
+		employees.setAddress(address);
+		er.save(employees);
+	}
 
 }
