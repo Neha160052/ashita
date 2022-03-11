@@ -2,9 +2,11 @@ package com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.Inheritan
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("cc")
+@Table(name = "card")
+//@DiscriminatorValue("cc")
 public class CreditCard extends Payment{
     private String cardnumber;
 
