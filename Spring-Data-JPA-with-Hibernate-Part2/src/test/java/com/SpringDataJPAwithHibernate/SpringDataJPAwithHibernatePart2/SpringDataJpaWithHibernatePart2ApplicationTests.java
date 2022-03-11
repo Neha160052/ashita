@@ -1,5 +1,8 @@
 package com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2;
 
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.AssociationMapping.Customer;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.AssociationMapping.CustomerRepository;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.AssociationMapping.PhoneNumber;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.Address;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.Employees;
 import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.ComponentMapping.EmployeesRepository;
@@ -14,6 +17,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
 
 @SpringBootTest
@@ -128,5 +132,38 @@ class SpringDataJpaWithHibernatePart2ApplicationTests {
 		employees.setAddress(address);
 		er.save(employees);
 	}
+
+	// association mapping
+
+	@Autowired
+	CustomerRepository cr;
+
+	@Test
+	public void testCreateCustomer(){
+		Customer customer = new Customer();
+		customer.setName("John");
+	//	HashSet<PhoneNumber> numbers = new HashSet<PhoneNumber>();
+
+		PhoneNumber ph1 = new PhoneNumber();
+		ph1.setNumber("1234567890");
+		ph1.setType("cell");
+	//	ph1.setCustomer(customer);
+	//	numbers.add(ph1);
+
+
+		PhoneNumber ph2 = new PhoneNumber();
+		ph2.setNumber("0987654321");
+		ph2.setType("home");
+	//	ph2.setCustomer(customer);
+	//	numbers.add(ph2);
+
+	//	customer.setNumbers(numbers);
+
+		customer.addPhoneNumber(ph1);
+		customer.addPhoneNumber(ph2);
+
+		cr.save(customer);
+	}
+
 
 }
