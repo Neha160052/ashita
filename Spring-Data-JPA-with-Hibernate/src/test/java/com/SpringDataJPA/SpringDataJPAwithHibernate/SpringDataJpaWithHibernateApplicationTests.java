@@ -1,5 +1,7 @@
 package com.SpringDataJPA.SpringDataJPAwithHibernate;
 
+import com.SpringDataJPA.SpringDataJPAwithHibernate.employee.Employee;
+import com.SpringDataJPA.SpringDataJPAwithHibernate.employee.EmployeeRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,14 @@ class SpringDataJpaWithHibernateApplicationTests {
 	@Autowired
 	ProductRepository repository;
 
+	@Autowired
+	EmployeeRepository er;
+
 	@Test
 	void contextLoads() {
 	}
 
+	// test cases for product
 	@Test
 	public void testCreate(){
 		Product product = new Product();
@@ -62,5 +68,14 @@ class SpringDataJpaWithHibernateApplicationTests {
 		System.out.println("Total count: "+repository.count());
 	}
 
+
+	// test cases for employee
+
+	@Test
+	public void testCreateEmployee(){
+		Employee employee = new Employee();
+		employee.setName("john");
+		er.save(employee);
+	}
 
 }
