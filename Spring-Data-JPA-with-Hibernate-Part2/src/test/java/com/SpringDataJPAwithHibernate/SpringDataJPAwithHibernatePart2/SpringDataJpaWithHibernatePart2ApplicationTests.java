@@ -1,5 +1,8 @@
 package com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2;
 
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.Cheque;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.CreditCard;
+import com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.InheritanceMapping.PaymentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -77,6 +80,5 @@ class SpringDataJpaWithHibernatePart2ApplicationTests {
 	public void testFindByFirstNameNQ() {
 		System.out.println(repository.findByFirstNQ("Bill"));
 	}
-
 
 }
