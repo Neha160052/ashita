@@ -3,7 +3,7 @@ package com.SpringDataJPAwithHibernate.SpringDataJPAwithHibernatePart2.Inheritan
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "pmode", discriminatorType = DiscriminatorType.STRING)
 public class Payment {
 
