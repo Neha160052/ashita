@@ -81,4 +81,29 @@ class SpringDataJpaWithHibernatePart2ApplicationTests {
 		System.out.println(repository.findByFirstNQ("Bill"));
 	}
 
+
+	// payment test cases
+
+	@Autowired
+	PaymentRepository pr;
+
+	@Test
+	public void createPayment(){
+		CreditCard cc = new CreditCard();
+		cc.setId(123);
+		cc.setAmount(1000);
+		cc.setCardnumber("1234567890");
+		pr.save(cc);
+	}
+
+	@Test
+	public void createChequePayment(){
+		Cheque ch = new Cheque();
+		ch.setId(124);
+		ch.setAmount(1000);
+		ch.setChequenumber(String.valueOf(2134567890));
+		pr.save(ch);
+	}
+
+
 }
