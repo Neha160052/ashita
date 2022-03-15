@@ -9,7 +9,10 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
 
     @Embedded
@@ -17,8 +20,11 @@ public class Author {
 
     List<String> subject = new ArrayList<>();
 
-    @OneToOne(mappedBy = "author")
-    private Book book;
+    /*@OneToOne(mappedBy = "author")
+    private Book book;*/
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    private Set<Book> books;
 
     public String getFirstName() {
         return firstName;
@@ -60,11 +66,21 @@ public class Author {
         this.address = address;
     }
 
-    public Book getBook() {
-        return book;
+    public Set<Book> getNumbers() {
+        return books;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setNumbers(Set<Book> numbers) {
+        this.books = numbers;
+    }
+
+    public void addBook(Book book) {
+        if (book != null) {
+            if (books == null) {
+                books = new HashSet<>();
+            }
+            book.setAuthor(this);
+            books.add(book);
+        }
     }
 }

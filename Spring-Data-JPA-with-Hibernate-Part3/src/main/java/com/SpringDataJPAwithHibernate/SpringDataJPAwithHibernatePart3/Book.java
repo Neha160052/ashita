@@ -10,7 +10,8 @@ public class Book {
     private int id;
     private String bookName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+   // @OneToOne(cascade = CascadeType.ALL)
+   @ManyToOne
     @JoinColumn(name="author_id")
     private Author author;
 
